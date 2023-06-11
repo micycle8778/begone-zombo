@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://fnr1ks7wr2hw"]
+
+[ext_resource type="Script" path="res://WeaponPickup.gd" id="1_25x6s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w11xf"]
+radius = 15.0
+height = 75.0
+
+[node name="WeaponPickup" type="Area2D"]
+script = ExtResource("1_25x6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_w11xf")
+
+[connection signal="body_entered" from="." to="." method="_on_Player_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Player_exited"]

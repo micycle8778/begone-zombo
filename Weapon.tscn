@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsnm288k544ud"]
+
+[ext_resource type="Script" path="res://Weapon.gd" id="1_sc1j8"]
+[ext_resource type="PackedScene" uid="uid://dxkxfwbockipl" path="res://Bullet/Bullet.tscn" id="2_l3ikc"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_sc1j8")
+bullet_scene = ExtResource("2_l3ikc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="BulletSpawnLocation" type="Marker2D" parent="."]
+
+[node name="FireTimer" type="Timer" parent="."]
+one_shot = true

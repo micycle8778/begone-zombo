@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://baksxoigukcbr"]
+
+[ext_resource type="PackedScene" uid="uid://dsnm288k544ud" path="res://Weapon.tscn" id="1_dmu6f"]
+[ext_resource type="Texture2D" uid="uid://dxp3p27gfk6vx" path="res://Weapons/Weapon Sprites/assaultrifle.png" id="2_dfgfi"]
+
+[node name="AssaultRifle" instance=ExtResource("1_dmu6f")]
+fire_rate = 900.0
+full_auto = true
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dfgfi")
+
+[node name="BulletSpawnLocation" parent="." index="1"]
+position = Vector2(29, -5)
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
