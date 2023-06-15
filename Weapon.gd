@@ -3,7 +3,7 @@ class_name Weapon
 
 @export var fire_rate: float
 @export var full_auto: bool
-@export var bullet_scene: PackedScene
+@export var bullet_scene: CustomizablePackedScene
 
 var can_fire := true
 
@@ -15,6 +15,7 @@ func _ready():
 
 func fire(bullet_parent: Node):
 	if can_fire:
+		print("firing")
 		can_fire = false
 		fire_timer.start()
 		
@@ -26,6 +27,9 @@ func fire(bullet_parent: Node):
 		bullet_parent.add_child(bullet)
 		
 		fire_timer.start()
+	else:
+		print("cannot fire")
 
 func _on_fire_timer_timeout():
+	print("can fire")
 	can_fire = true

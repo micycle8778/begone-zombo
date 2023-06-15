@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxdggbyxmbbpv"]
+
+[ext_resource type="PackedScene" uid="uid://dsnm288k544ud" path="res://Weapon.tscn" id="1_g8cdn"]
+[ext_resource type="PackedScene" uid="uid://q0ct5momtxev" path="res://Bullet/shotgun_bullet.tscn" id="2_abdxg"]
+[ext_resource type="Texture2D" uid="uid://ksmmgst017im" path="res://Weapon Sprites/shotgun.png" id="3_5j2ig"]
+[ext_resource type="Script" path="res://addons/customizable_packed_scene/customizable_packed_scene.gd" id="3_mqux3"]
+
+[sub_resource type="Resource" id="Resource_qn3ky"]
+script = ExtResource("3_mqux3")
+scene = ExtResource("2_abdxg")
+start_color = Color(1, 1, 0, 1)
+end_color = Color(0.568627, 0.568627, 0.568627, 0.52549)
+glow_time = 0.1
+fade_time = 0.25
+depth = 150.0
+damage_gradient = 1.0
+angle = 45.0
+
+[node name="Shotgun" instance=ExtResource("1_g8cdn")]
+fire_rate = 650.0
+bullet_scene = SubResource("Resource_qn3ky")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_5j2ig")
+
+[node name="BulletSpawnLocation" parent="." index="1"]
+position = Vector2(37, -9)

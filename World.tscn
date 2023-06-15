@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://b687tgy3mve6k"]
+
+[ext_resource type="PackedScene" uid="uid://dwc4p3vi5a57u" path="res://Player/Player.tscn" id="1_qoei3"]
+[ext_resource type="PackedScene" uid="uid://fnr1ks7wr2hw" path="res://weapon_pickup.tscn" id="2_e7res"]
+[ext_resource type="PackedScene" uid="uid://cqf5vajy5is22" path="res://Weapons/assault_rifle.tscn" id="3_uru2p"]
+[ext_resource type="PackedScene" uid="uid://dxdggbyxmbbpv" path="res://Weapons/shotgun.tscn" id="3_yn13j"]
+[ext_resource type="Script" path="res://addons/customizable_packed_scene/customizable_packed_scene.gd" id="4_pfs07"]
+
+[sub_resource type="Resource" id="Resource_8g6m3"]
+script = ExtResource("4_pfs07")
+scene = ExtResource("3_uru2p")
+fire_rate = 650.0
+full_auto = true
+
+[sub_resource type="Resource" id="Resource_rqpat"]
+script = ExtResource("4_pfs07")
+scene = ExtResource("3_yn13j")
+fire_rate = 650.0
+full_auto = false
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_qoei3")]
+position = Vector2(214, 233)
+
+[node name="WeaponPickup" parent="." instance=ExtResource("2_e7res")]
+position = Vector2(454, 346)
+weapon_scene = SubResource("Resource_8g6m3")
+
+[node name="WeaponPickup2" parent="." instance=ExtResource("2_e7res")]
+position = Vector2(571, 381)
+weapon_scene = SubResource("Resource_rqpat")

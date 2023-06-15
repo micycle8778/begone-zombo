@@ -1,17 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://baksxoigukcbr"]
+[gd_scene load_steps=6 format=3 uid="uid://cqf5vajy5is22"]
 
 [ext_resource type="PackedScene" uid="uid://dsnm288k544ud" path="res://Weapon.tscn" id="1_dmu6f"]
-[ext_resource type="Texture2D" uid="uid://dxp3p27gfk6vx" path="res://Weapons/Weapon Sprites/assaultrifle.png" id="2_dfgfi"]
+[ext_resource type="Texture2D" uid="uid://cqb3ckm167sux" path="res://Weapon Sprites/assaultrifle.png" id="2_3u1sx"]
+[ext_resource type="PackedScene" uid="uid://dxkxfwbockipl" path="res://Bullet/Bullet.tscn" id="2_meknx"]
+[ext_resource type="Script" path="res://addons/customizable_packed_scene/customizable_packed_scene.gd" id="3_p1jug"]
+
+[sub_resource type="Resource" id="Resource_4p6r4"]
+script = ExtResource("3_p1jug")
+scene = ExtResource("2_meknx")
+start_color = Color(1, 1, 0, 1)
+end_color = Color(0.568627, 0.568627, 0.568627, 0.52549)
+thickness = 2.0
+glow_time = 0.1
+fade_time = 0.25
+rotation_variance = 0.0
 
 [node name="AssaultRifle" instance=ExtResource("1_dmu6f")]
-fire_rate = 900.0
+fire_rate = 650.0
 full_auto = true
+bullet_scene = SubResource("Resource_4p6r4")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_dfgfi")
+texture = ExtResource("2_3u1sx")
 
 [node name="BulletSpawnLocation" parent="." index="1"]
 position = Vector2(29, -5)
-
-[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
